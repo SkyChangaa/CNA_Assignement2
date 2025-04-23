@@ -312,11 +312,20 @@ void SR_A_output(struct msg message)
   memcpy(packet.payload, message.data, 20);
   packet.checksum = 0;
   packet.checksum = compute_checksum(packet);
-
+  
 
   window[nextseqnum] = packet;
   acked[nextseqnum] = false;
   in_use[nextseqnum] = true;
+
+  tolayer3(A, packet);
+  starttimer(A, RTT);
+  timer_start[nextseqnum] = get_sim_time();
+
+  printf("SR_A_output: Sent packet %d\n", nextseqnum);
+
+  nextseqnum = (nextseqnum + 1) % SR_SEQSPACE;
 }
+
 
 
