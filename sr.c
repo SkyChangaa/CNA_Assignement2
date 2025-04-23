@@ -400,5 +400,9 @@ void SR_B_input(struct pkt packet)
   }
 }
 
-void SR_B_init(void) {
+void SR_B_init(void) 
+{expectedseqnum_B = 0;
+  for (int i = 0; i < SR_SEQSPACE; i++) {
+      received[i] = false;
+  } 
 }
