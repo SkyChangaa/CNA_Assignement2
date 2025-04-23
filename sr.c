@@ -288,7 +288,8 @@ void B_timerinterrupt(void)
 {
 }
 
-void SR_A_init(void) {
+void SR_A_init(void) 
+{
   base = 0;
   nextseqnum = 0;
   for (int i = 0; i < SR_SEQSPACE; i++) {
@@ -296,4 +297,8 @@ void SR_A_init(void) {
     in_use[i] = false;
     timer_start[i] = 0;
   }
+}
+
+void SR_A_output(struct msg message)
+{
 }
