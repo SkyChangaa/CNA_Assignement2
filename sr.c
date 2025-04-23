@@ -346,4 +346,7 @@ void SR_A_input(struct pkt packet)
 
 }
 
+void SR_A_timerinterrupt(void) 
+{
+}
 
