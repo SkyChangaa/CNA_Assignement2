@@ -288,3 +288,5 @@ void B_timerinterrupt(void)
 {
 }
 
+void SR_A_init(void) {
+}
