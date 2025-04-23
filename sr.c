@@ -370,5 +370,11 @@ void SR_A_timerinterrupt(void)
 
 }
 
-void SR_B_input(struct pkt packet) {
+void SR_B_input(struct pkt packet) 
+{ int checksum = compute_checksum(packet);
+  if (checksum != packet.checksum) {
+      printf("SR_B_input: Corrupted packet %d, discarded\n", packet.seqnum);
+      return;
+  }
+  
 }
