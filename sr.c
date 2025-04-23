@@ -339,6 +339,10 @@ void SR_A_input(struct pkt packet)
     printf("SR_A_input: ACK for unused seq %d, ignoring\n", acknum);
     return;
   }
+  acked[acknum] = true;
+  in_use[acknum] = false;
+  stoptimer(A);  
+  printf("SR_A_input: ACK received for packet %d\n", acknum);
 
 }
 
