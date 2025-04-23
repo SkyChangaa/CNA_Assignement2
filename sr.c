@@ -17,8 +17,7 @@ static float timer_start[SR_SEQSPACE];
 static int base = 0;
 static int nextseqnum = 0;
 
-
-
+static struct msg msg_buffer[SR_SEQSPACE];
 
 /* ******************************************************************
    Go Back N protocol.  Adapted from J.F.Kurose
