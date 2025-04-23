@@ -62,7 +62,7 @@ static int windowcount;                /* the number of packets currently awaiti
 static int A_nextseqnum;               /* the next sequence number to be used by the sender */
 
 /* called from layer 5 (application layer), passed the message to be sent to other side */
-void A_output(struct msg message)
+void SR_A_output(struct msg message)
 {
   struct pkt sendpkt;
   int i;
@@ -109,7 +109,7 @@ void A_output(struct msg message)
 /* called from layer 3, when a packet arrives for layer 4 
    In this practical this will always be an ACK as B never sends data.
 */
-void A_input(struct pkt packet)
+void SR_A_input(struct pkt packet)
 {
   int ackcount = 0;
   int i;
@@ -163,7 +163,7 @@ void A_input(struct pkt packet)
 }
 
 /* called when A's timer goes off */
-void A_timerinterrupt(void)
+void SR_A_timerinterrupt(void)
 {
   int i;
 
@@ -185,7 +185,7 @@ void A_timerinterrupt(void)
 
 /* the following routine will be called once (only) before any other */
 /* entity A routines are called. You can use it to do any initialization */
-void A_init(void)
+void SR_A_init(void)
 {
   /* initialise A's window, buffer and sequence number */
   A_nextseqnum = 0;  /* A starts with seq num 0, do not change this */
