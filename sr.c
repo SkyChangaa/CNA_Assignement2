@@ -306,5 +306,17 @@ void SR_A_output(struct msg message)
       printf("SR_A_output: Window full, dropping message\n");
       return;
   }
-  
+  struct pkt packet;
+  packet.seqnum = nextseqnum;
+  packet.acknum = -1;
+  memcpy(packet.payload, message.data, 20);
+  packet.checksum = 0;
+  packet.checksum = compute_checksum(packet);
+
+
+  window[nextseqnum] = packet;
+  acked[nextseqnum] = false;
+  in_use[nextseqnum] = true;
 }
+
+
