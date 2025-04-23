@@ -329,6 +329,12 @@ void SR_A_output(struct msg message)
 
 void SR_A_input(struct pkt packet) 
 {
+  int checksum = compute_checksum(packet);
+  if (checksum != packet.checksum) {
+      printf("SR_A_input: Corrupted ACK received, ignored\n");
+      return;
+  }
+  
 }
 
 
