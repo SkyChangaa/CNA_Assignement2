@@ -8,6 +8,11 @@
 #define SR_SEQSPACE 12
 #define RTT 15.0
 
+static struct pkt window[SR_SEQSPACE];
+
+static bool acked[SR_SEQSPACE];
+static bool in_use[SR_SEQSPACE];
+
 
 /* ******************************************************************
    Go Back N protocol.  Adapted from J.F.Kurose
