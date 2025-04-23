@@ -19,6 +19,11 @@ static int nextseqnum = 0;
 
 static struct msg msg_buffer[SR_SEQSPACE];
 
+static int expectedseqnum_B = 0;
+static struct pkt recv_buffer[SR_SEQSPACE];
+static bool received[SR_SEQSPACE];
+
+
 /* ******************************************************************
    Go Back N protocol.  Adapted from J.F.Kurose
    ALTERNATING BIT AND GO-BACK-N NETWORK EMULATOR: VERSION 1.2  
