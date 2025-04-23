@@ -385,5 +385,12 @@ void SR_B_input(struct pkt packet)
 
   tolayer3(B, ackpkt);
   printf("SR_B_input: Sent ACK for %d\n", packet.seqnum);
+  
+  if (!received[packet.seqnum]) {
+    recv_buffer[packet.seqnum] = packet;
+    received[packet.seqnum] = true;
+    printf("SR_B_input: Buffered packet %d\n", packet.seqnum);
+  }
+
 
 }
