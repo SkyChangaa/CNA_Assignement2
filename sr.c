@@ -206,7 +206,7 @@ static int B_nextseqnum;   /* the sequence number for the next packets sent by B
 
 
 /* called from layer 3, when a packet arrives for layer 4 at B*/
-void B_input(struct pkt packet)
+void SR_B_input(struct pkt packet)
 {
   struct pkt sendpkt;
   int i;
@@ -253,7 +253,7 @@ void B_input(struct pkt packet)
 
 /* the following routine will be called once (only) before any other */
 /* entity B routines are called. You can use it to do any initialization */
-void B_init(void)
+void SR_B_init(void)
 {
   expectedseqnum = 0;
   B_nextseqnum = 1;
