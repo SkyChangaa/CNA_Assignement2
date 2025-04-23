@@ -334,7 +334,12 @@ void SR_A_input(struct pkt packet)
       printf("SR_A_input: Corrupted ACK received, ignored\n");
       return;
   }
-  
+  int acknum = packet.acknum;
+  if (!in_use[acknum]) {
+    printf("SR_A_input: ACK for unused seq %d, ignoring\n", acknum);
+    return;
+  }
+
 }
 
 
