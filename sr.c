@@ -4,6 +4,11 @@
 #include "emulator.h"
 #include "sr.h"
 
+#define SR_WINDOW_SIZE 6
+#define SR_SEQSPACE 12
+#define RTT 15.0
+
+
 /* ******************************************************************
    Go Back N protocol.  Adapted from J.F.Kurose
    ALTERNATING BIT AND GO-BACK-N NETWORK EMULATOR: VERSION 1.2  
