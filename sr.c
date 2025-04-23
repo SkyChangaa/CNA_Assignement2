@@ -13,6 +13,12 @@ static struct pkt window[SR_SEQSPACE];
 static bool acked[SR_SEQSPACE];
 static bool in_use[SR_SEQSPACE];
 
+static float timer_start[SR_SEQSPACE];
+static int base = 0;
+static int nextseqnum = 0;
+
+
+
 
 /* ******************************************************************
    Go Back N protocol.  Adapted from J.F.Kurose
