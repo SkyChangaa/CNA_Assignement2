@@ -289,4 +289,7 @@ void B_timerinterrupt(void)
 }
 
 void SR_A_init(void) {
+  base = 0;
+  nextseqnum = 0;
+
 }
