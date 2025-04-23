@@ -370,3 +370,5 @@ void SR_A_timerinterrupt(void)
 
 }
 
+void SR_B_input(struct pkt packet) {
+}
