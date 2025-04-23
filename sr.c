@@ -356,6 +356,12 @@ void SR_A_timerinterrupt(void)
           oldest_time = timer_start[i];
       }
   }
-  
+  if (oldest != -1) {
+    tolayer3(A, window[oldest]);
+    starttimer(A, RTT);
+    timer_start[oldest] = get_sim_time();
+    printf("SR_A_timerinterrupt: Timeout for packet %d, retransmitted\n", oldest);
+  }
+
 }
 
