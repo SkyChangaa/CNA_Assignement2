@@ -312,7 +312,7 @@ void SR_A_output(struct msg message)
   memcpy(packet.payload, message.data, 20);
   packet.checksum = 0;
   packet.checksum = compute_checksum(packet);
-  
+
 
   window[nextseqnum] = packet;
   acked[nextseqnum] = false;
@@ -327,5 +327,8 @@ void SR_A_output(struct msg message)
   nextseqnum = (nextseqnum + 1) % SR_SEQSPACE;
 }
 
+void SR_A_input(struct pkt packet) 
+{
+}
 
 
