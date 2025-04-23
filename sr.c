@@ -347,6 +347,15 @@ void SR_A_input(struct pkt packet)
 }
 
 void SR_A_timerinterrupt(void) 
-{
+{int oldest = -1;
+  float oldest_time = get_sim_time();
+  
+  for (int i = 0; i < SR_SEQSPACE; i++) {
+      if (in_use[i] && !acked[i] && timer_start[i] < oldest_time) {
+          oldest = i;
+          oldest_time = timer_start[i];
+      }
+  }
+  
 }
 
