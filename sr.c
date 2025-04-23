@@ -301,4 +301,10 @@ void SR_A_init(void)
 
 void SR_A_output(struct msg message)
 {
+  int window_count = (nextseqnum - base + SR_SEQSPACE) % SR_SEQSPACE;
+  if (window_count >= SR_WINDOW_SIZE) {
+      printf("SR_A_output: Window full, dropping message\n");
+      return;
+  }
+  
 }
