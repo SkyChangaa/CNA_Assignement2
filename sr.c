@@ -376,5 +376,14 @@ void SR_B_input(struct pkt packet)
       printf("SR_B_input: Corrupted packet %d, discarded\n", packet.seqnum);
       return;
   }
-  
+  struct pkt ackpkt;
+  ackpkt.seqnum = 0;
+  ackpkt.acknum = packet.seqnum;
+  memcpy(ackpkt.payload, "ACK", 4);
+  ackpkt.checksum = 0;
+  ackpkt.checksum = compute_checksum(ackpkt);
+
+  tolayer3(B, ackpkt);
+  printf("SR_B_input: Sent ACK for %d\n", packet.seqnum);
+
 }
