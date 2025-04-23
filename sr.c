@@ -399,3 +399,6 @@ void SR_B_input(struct pkt packet)
     expectedseqnum_B = (expectedseqnum_B + 1) % SR_SEQSPACE;
   }
 }
+
+void SR_B_init(void) {
+}
